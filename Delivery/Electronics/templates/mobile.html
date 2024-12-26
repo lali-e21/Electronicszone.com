@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <style></style>
+  </head>
+  <body>
+    {% block content %}
+    <div class="detail">
+      <img src="{{mobile.Image.url}}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Name: {{ mobile.Mobile_Name }}</h5>
+        <h5 class="card-title">Price: ${{ mobile.Price }}</h5>
+        <h5 class="card-title">Android Version: {{ mobile.Android }}</h5>
+        <h5 class="card-title">Brand: {{ mobile.Brand }}</h5>
+        <h5 class="card-title">Model: {{ mobile.ModeL }}</h5>
+        <h5 class="card-title">RAM: {{ mobile.Ram }}</h5>
+        <h5 class="card-title">Storage: {{ mobile.Storage }}</h5>
+        <h5 class="card-title">Battery: {{ mobile.Battery }}</h5>
+        <h5 class="card-title">Screen Size: {{ mobile.Screen_Size }}</h5>
+        <h5 class="card-title">Network Model: {{ mobile.Network }}</h5>
+        <h5 class="card-title">Description: {{ mobile.description }}</h5>
+        <a href="{% url 'home' %}" class="btn btn-primary">Go Home</a>
+      </div>
+    </div>
+
+    {% endblock content %}
+  </body>
+</html>

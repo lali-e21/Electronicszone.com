@@ -1,0 +1,472 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  html,body {
+  
+    overflow: auto; /* Ensure scrolling is enabled */
+    height: auto; 
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: white;
+  }
+  
+  header .logo h1 {
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  
+  header .nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  header .nav ul li {
+    margin: 0 1rem;
+  }
+  
+  header .nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  header .nav ul li a:hover {
+    color: #f0a500;
+  }
+  
+  .hero {
+    font-style: calc(italic,bold);
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(to right, #4b083c, #011011e5);
+    color: white;
+    border-radius: 10px;
+    border: black ;
+  }
+  
+  .hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+  
+  .hero p {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero button {
+    background-color: #3b2c09;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .hero button:hover {
+    background-color: #d18f00;
+  }
+  
+ 
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(to left, #04114d, #011011);
+    border-radius: 5px;
+    color: white;
+    margin-top: 2rem;
+  }
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .search-bar button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 4px;
+  }
+  
+  .search-bar button:hover {
+    background-color: #0056b3;
+  }
+  .search-bar input:hover{
+border: #011011 2px;
+color: #74035b;
+  }
+  product-card.img:hover {
+    transform: scale(1.1); /* Scale the image to 110% of its original size */
+}
+
+
+
+/* main.css */
+
+/* General Product Section Styling */
+.products {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.products h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.product-card {
+  width: 250px;
+  height: 370px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card:hover {
+ transform: rotate(45deg);
+  transform: translateX(-25px);
+  box-shadow: 0 5px 15px white;
+}
+
+.product-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  margin-bottom: 50px;
+}
+
+.product-card img:hover {
+  transform: scale(1.2);
+}
+
+.product-card h3 {
+  font-size: 1.2em;
+  margin: 5px 0;
+  color: #04114d;
+}
+
+.product-card p {
+  font-size: 1em;
+  font-weight: bold;
+  color: #666;
+}
+.product-card button a{
+  text-decoration: none;
+}
+.product-card button {
+  display: inline-block;
+  width: 100px; /* Adjust button size dynamically */
+  padding: 10px; /* Adjust padding for better appearance */
+  height: 40px;
+  text-align: center;
+  background-color: #04114d;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-card button:hover {
+  background-color: #520445;
+  transform: scale(1.05);
+}
+.product-card button a{
+  color: white;
+}
+/* Animated Hover Effects */
+.product-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(255, 152, 0, 0.1);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.product-card:hover::after {
+  width: 100%;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .product-list {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  color: #333;
+}
+
+p, ul {
+  color: #555;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.social-media {
+  display: flex;
+  gap: 15px;
+}
+
+a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+address {
+  font-style: normal;
+  line-height: 1.6;
+}
+/* contact css*/
+/* General Reset */
+
+
+/* Container Styling */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Heading Styles */
+.container h1 {
+  font-size: 2.8rem;
+  color: black;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.container h2 {
+  font-size: 2rem;
+  color: white;
+  margin-top: 30px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+
+/* Paragraph Styling */
+.container p {
+  margin: 15px 0;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Social Media Links */
+.container ul.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 0;
+  list-style: none;
+  margin: 20px 0;
+}
+
+.container ul.social-media li {
+  display: inline-block;
+}
+
+.container ul.social-media li a {
+  font-size: 1.2rem;
+  background-color: #f4f4f9;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container ul.social-media li a:hover {
+  background-color: #007bff;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Strong Text */
+strong {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .container h1 {
+    font-size: 2.4rem;
+  }
+
+  .container h2 {
+    font-size: 1.6rem;
+  }
+
+  .container p {
+    font-size: 0.95rem;
+  }
+
+  ul.social-media li a {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+}
+/*prod css*/
+/* detail.css */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5; /* Light gray background for contrast *
+
+.detail {
+  width: 60%;
+  max-width: 800px;
+  margin: 40px auto; /* Centers the card */
+  background-color: #ffffff; /* White background for the card */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 12px; /* Rounded corners */
+  overflow: hidden; /* Ensures rounded edges around the image */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.detail:hover {
+  transform: translateY(-10px); /* Slight lift on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto; /* Ensures image scales properly */
+  object-fit: cover; /* Ensures image looks good even if dimensions vary */
+}
+
+.card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Dark gray for text */
+  margin: 8px 0;
+}
+
+.card-body h5:nth-child(even) {
+  color: #555; /* Alternate color for better readability */
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: #fff; /* White text */
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px; /* Rounded button */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .detail {
+    width: 90%; /* Reduce width for smaller screens */
+  }
+
+  .card-title {
+    font-size: 16px; /* Slightly smaller font for better spacing */
+  }
+}
+

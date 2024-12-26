@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Products</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  </head>
+  <body>
+    {% block content %}
+    <section class="products">
+      <h2>Our Products</h2>
+      <div class="product-list">
+        <!-- Loop through products -->
+        {% for product in products %}
+        <div class="product-card">
+          <img src="{{ product.Image.url }}" alt="{{ product.name }}" />
+          <h3>{{ product.Name }}</h3>
+        </div>
+        {% endfor %}
+        <br />
+
+        <!-- Loop through phones -->
+        {% for product in mobile %}
+        <div class="product-card">
+          <img src="{{ product.Image.url }}" alt="{{ product.name }}" />
+          <h3>{{ product.Mobile_Name }}</h3>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {%endblock%}
+  </body>
+</html>

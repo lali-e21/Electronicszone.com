@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electronics Online Delivery</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body>
+    {% block content %}
+    <header>
+      
+      <h3>Electronics Online Delivery</h3>
+      <p>Get the latest electronics delivered @ Electronics Zone</p>
+    </header>
+    <div>
+      <h4>
+        Our Electronics Delivery Service brings the latest and greatest in
+        technology right to your doorstep. Whether you need a new smartphone,
+        laptop, or home appliance, we offer a seamless online shopping
+        experience that prioritizes convenience, speed, and reliability.
+      </h4>
+    </div class="div">
+    <script>
+      // Add event listener to the search button
+      document
+        .getElementById("search-button")
+        .addEventListener("click", function () {
+          // Get the search query
+          const query = document
+            .getElementById("search-input")
+            .value.toLowerCase();
+
+          // Get all product cards
+          const products = document.querySelectorAll(".product-card");
+
+          // Initialize a variable to check if results are found
+          let hasResults = false;
+
+          // Loop through each product and check if it matches the query
+          products.forEach((product) => {
+            const productName = product
+              .querySelector("h3")
+              .textContent.toLowerCase();
+            if (productName.includes(query)) {
+              product.style.display = "block"; // Show matching product
+              hasResults = true;
+            } else {
+              product.style.display = "none"; // Hide non-matching product
+            }
+          });
+
+          // Alert if no results are found
+          if (!hasResults) {
+            alert("No products found!");
+          }
+        });
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const navMenu = document
+            .getElementById("nav-menu")
+            .querySelector("ul");
+          navMenu.classList.toggle("active");
+        });
+    </script>
+
+    {% endblock content %}
+  </body>
+</html>

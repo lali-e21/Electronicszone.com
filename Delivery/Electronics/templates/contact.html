@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Information Form</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body>
+    {% block content %}
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>
+        We’re here to help! If you have any questions, feedback, or need
+        assistance with our electronic delivery services, please don’t hesitate
+        to reach out.
+      </p>
+
+      <h2>Customer Support</h2>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:Electroniczone@gmail.com"> Electroniczone@gmail.com</a>
+      </p>
+
+      <h2>Follow Us</h2>
+      <p>
+        Stay updated with our latest news and promotions by following us on
+        social media:
+      </p>
+      <ul class="social-media">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+
+      <h2>Mailing Address</h2>
+      <p>
+        If you need to send us documents or correspondence, please use the
+        following address:
+      </p>
+      <address>
+        Electronic Delivery Inc.<br />
+        123 Delivery Lane<br />
+        Suite 456<br />
+        Bahir Dar, Ethiopia ,6000
+      </address>
+    </div>
+    {% endblock content %}
+  </body>
+</html>

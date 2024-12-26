@@ -1,0 +1,164 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laptop Delivery E-Commerce</title>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="logo">
+        <h1>Electronics Zone</h1>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="{% url "store" %}">Home</a></li>
+          <li><a href="{% url "product" %}">Products</a></li>
+          <li><a href="{% url "contact" %}">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for products..."
+        />
+        <button type="button" id="search-button">Search</button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h2>Fast and Reliable Electronics Delivery</h2>
+      <p>
+        Shop for the latest electronics and have them delivered straight to your
+        door.
+      </p>
+      <button>Shop Now</button>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+      <h2>Our Products</h2>
+      <div class="product-list">
+        <!-- Loop through products -->
+        {% for product in products %}
+        <div class="product-card">
+          <img
+          
+            src="{{ product.Image.url }}"
+            alt="{{ product.Name }}"
+          />
+          <h3>{{ product.Name }}</h3>
+          <p>${{ product.Price }}</p>
+          <button><a href="{% url "add" %}">Add Cart</a></button>
+          <button><a href="{% url 'detail' product.Number %}">Detail</a></button>
+
+        </div>
+        {% endfor %}
+        <br />
+
+        <!-- Loop through phones -->
+        {% for mobile in mobiles %}
+        <div class="product-card">
+          <img
+          
+            src="{{ mobile.Image.url }}"
+            alt="{{ product.name }}"
+          />
+          <h3>{{ mobile.Mobile_Name }}</h3>
+          <p>${{ mobile.Price }}</p>
+          <button><a href="{% url "add" %}">Add Cart</a></button>
+          <button><a href="{% url 'mobile' mobile.Number %}">Detail</a></button>
+
+        </div>
+        {% endfor %}
+        <br>
+        {% for ear in earphones %}
+        <div class="product-card">
+          <img
+          
+            src="{{ ear.Image.url }}"
+            alt="{ear.name }}"
+          />
+          <h3>{{ ear.Earphone_Name }}</h3>
+          <p>${{ ear.Price }}</p>
+          <button><a href="{% url "add" %}">Add Cart</a></button>
+          <button><a href="{% url "add" %}">Detail</a></button>
+
+        </div>
+        {% endfor %}
+       <br>
+        {% for product in chargers %}
+        <div class="product-card">
+          <img
+          
+            src="{{ product.Image.url }}"
+            alt="{{ product.name }}"
+          />
+          <h3>{{ product.Charger_Name }}</h3>
+          <p>${{ product.Price }}</p>
+          <button><a href="{% url "add" %}">Add Cart</a></button>
+          <button><a href="{% url  'charger' product.Number %}">Detail</a></button>
+
+        </div>
+        {% endfor %}
+      
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Electronics Zone. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Add event listener to the search button
+      document
+        .getElementById("search-button")
+        .addEventListener("click", function () {
+          // Get the search query
+          const query = document
+            .getElementById("search-input")
+            .value.toLowerCase();
+
+          // Get all product cards
+          const products = document.querySelectorAll(".product-card");
+
+          // Initialize a variable to check if results are found
+          let hasResults = false;
+
+          // Loop through each product and check if it matches the query
+          products.forEach((product) => {
+            const productName = product
+              .querySelector("h3")
+              .textContent.toLowerCase();
+            if (productName.includes(query)) {
+              product.style.display = "block"; // Show matching product
+              hasResults = true;
+            } else {
+              product.style.display = "none"; // Hide non-matching product
+            }
+          });
+
+          // Alert if no results are found
+          if (!hasResults) {
+            alert("No products found!");
+          }
+        });
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const navMenu = document
+            .getElementById("nav-menu")
+            .querySelector("ul");
+          navMenu.classList.toggle("active");
+        });
+    </script>
+  </body>
+</html>

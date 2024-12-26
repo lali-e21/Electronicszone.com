@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <style></style>
+  </head>
+  <body>
+    {% block content %}
+    <header>
+      <h1>Laptop Collection</h1>
+    </header>
+    <section class="chargers">
+      <h2>Available Laptop</h2>
+      <div class="charger-list">
+        <!-- Loop through chargers -->
+        
+        <div class="charger-card">
+      <img src="{{product.Image.url}}" class="card-img-top" alt="..." />
+      <div class="card-body">
+  <b>   <h5 class="card-title">Name: {{ product.Name }}</h5></b>
+    <b>     <h5 class="card-title">Price: ${{ product.Price }}</h5>
+      <b>   <h5 class="card-title">Generation: {{ product.Generation }}</h5>
+        <b>  <h5 class="card-title">Brand: {{ product.Brand }}</h5>
+          <b> <h5 class="card-title">Model: {{ product.ModeL }}</h5>
+            <b>        <h5 class="card-title">RAM: {{ product.Ram }}</h5>
+              <b>  <h5 class="card-title">Storage: {{ product.Storage }}</h5>
+                <b><h5 class="card-title">Core: {{ product.Core }}</h5>
+                  <b>  <h5 class="card-title">
+          Design Capacity: {{ product.Design_Capacity }}
+        </h5>
+        <b> <h5 class="card-title">
+          Full Charge Capacity: {{ product.Full_Charge_Capacity }}
+        </h5>
+        <b><h5 class="card-title">Screen Size: {{ product.Screen_Size }}</h5>
+        <a href="{% url 'home' %}" class="btn btn-primary">Go Home</a>
+       
+      </div>
+      {% endblock content %}
+    </div>
+  </section>
+
+    
+  </body>
+</html>

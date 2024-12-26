@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charger List</title>
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body>
+    {% block content %}
+    <header>
+      <h1>Chargers Collection</h1>
+    </header>
+    <section class="chargers">
+      <h2>Available Chargers</h2>
+      <div class="charger-list">
+        <!-- Loop through chargers -->
+        
+        <div class="charger-card">
+          <img src="{{ charger.Image.url }}" alt="{{ charger.Charger_Name }}" />
+          <h3>{{ charger.Charger_Name }}</h3>
+          <h3><strong>Price:</strong> ${{ charger.Price }}</p>
+          <h3><strong>Brand:</strong> {{ charger.Brand }}</p>
+          <h3><strong>Warranty:</strong> {{ charger.Waranty }}</p>
+         
+        </div>
+        {% endblock content %}
+      </div>
+    </section>
+    <footer>
+      <p>&copy; 2024 Electronics Zone. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

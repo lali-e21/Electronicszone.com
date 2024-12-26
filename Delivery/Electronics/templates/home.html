@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <h1>Your Cart</h1>
+      <a href="{% url 'home' %}">Back to Home</a>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products">
+      <h2>Products in Your Cart</h2>
+      <div class="product-list">
+        {% for product in prod %}
+        <div class="product-card">
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+          <h3>{{ product.name }}</h3>
+          <p>Price: ${{ product.price }}</p>
+          <p>Brand: {{ product.brand }}</p>
+          <p>Model: {{ product.modeL }}</p>
+          <p>Generation: {{ product.generation }}</p>
+          <p>RAM: {{ product.ram }} GB</p>
+          <p>Storage: {{ product.storage }} GB</p>
+          <p>Core: {{ product.core }}</p>
+          <p>Screen Size: {{ product.screen_size }} inches</p>
+        </div>
+        {% empty %}
+        <p>No products in your cart.</p>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Electronics Zone. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
